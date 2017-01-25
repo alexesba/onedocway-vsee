@@ -15,3 +15,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+reactapp/src/build
+app/assets/javascripts/app.js
+app/assets/stylesheets/style.css
+reactapp/build/
