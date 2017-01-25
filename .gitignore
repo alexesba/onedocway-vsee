@@ -19,3 +19,4 @@ reactapp/src/build
 app/assets/javascripts/app.js
 app/assets/stylesheets/style.css
 reactapp/build/
+app/assets/stylesheets/app.scss
