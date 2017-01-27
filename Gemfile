@@ -33,6 +33,9 @@ gem 'versionist'
 gem 'rack-cors'
 gem 'opentok', '~> 2.3'
 gem 'figaro'
+gem 'httparty'
+gem 'active_model_serializers'
+gem 'ffaker'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-react'

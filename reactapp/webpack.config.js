@@ -2,6 +2,7 @@ var path = require("path");
 var lodash = require("lodash");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
+var webpack = require("webpack");
 
 
 module.exports = {
@@ -25,6 +26,7 @@ module.exports = {
           presets: ['react-hmre', 'react', 'latest', "stage-0"]
         }
       },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)$/,
         loader: 'url-loader?limit=9999999',
@@ -43,6 +45,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Awesome React!!",
       template: "index.ejs",
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        'API_URL': JSON.stringify("http://localhost:3000"),
+        'NODE_ENV': '"development"'
+      }
     })
   ]
 }

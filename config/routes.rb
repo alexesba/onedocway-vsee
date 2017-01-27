@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get '/app/*', to: 'app#index', as: :react_app
   namespace :api do
     api_version module: 'v1', path: { value: 'v1' } do
-      resource :vsee, only: [] do
-        get :token
+      resources :users, only: :index
+      resource :vsees, only: [:create] do
+        post :uri
       end
     end
   end

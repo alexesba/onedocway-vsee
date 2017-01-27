@@ -3,6 +3,7 @@ var lodash = require("lodash");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
+var webpack = require("webpack");
 
 
 const loaderString = [
@@ -37,6 +38,7 @@ module.exports = {
         test: /.json$/,
         loader: "json-loader"
       },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
       {
         test: /\.scss?$/,
         exclude: /node_modules/,
@@ -49,6 +51,12 @@ module.exports = {
     "react-dom": "ReactDOM"
   },
   "plugins": [
+    new webpack.DefinePlugin({
+      "process.env": {
+        "API_URL": '""',
+        "NODE_ENV": '"production"'
+      }
+    }),
     new ExtractTextPlugin('style.css'),
     new HtmlWebpackPlugin({
       title: "Awesome React!!",
