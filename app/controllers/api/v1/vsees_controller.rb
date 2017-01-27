@@ -17,6 +17,8 @@ class Api::V1::VseesController < Api::V1::ApplicationController
     })
   end
 
+
+
   def create
     user = vsee_service.find_or_create_by(user_params)
     if user.is_a?(User)

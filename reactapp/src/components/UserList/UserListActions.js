@@ -23,6 +23,7 @@ const fetchUserListSuccess =  users => {
 
 export const setCurrentUser = user => {
   return dispatch => {
+    if (_.isEmpty(user)) return dispatch({ type: SET_CURRENT_USER, user })
     return Api.post("vsees", { user })
       .then( () => dispatch({ type: SET_CURRENT_USER, user }))
       .catch(error => console.error(error));
@@ -30,8 +31,8 @@ export const setCurrentUser = user => {
 }
 
 export const setUserToCall = user => {
-
   return dispatch => {
+    if (_.isEmpty(user)) return dispatch({ type: SET_USER_TO_CALL, user })
     return Api.post("vsees", { user })
       .then( () => dispatch({ type: SET_USER_TO_CALL, user }))
       .catch(error => console.error(error));
